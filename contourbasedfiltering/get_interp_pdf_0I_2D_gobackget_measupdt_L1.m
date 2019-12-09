@@ -216,8 +216,8 @@ Bout = normpdfexp(Xout,zeros(1,dim),1^2*eye(dim));
 Neq = size(Aeqtrain,1);
 % for C=linspace(0.001,100,100)
 prevmxentpoly = 0;
-keyboard
-    for C = [0.01,0.1,25,100,250,500,800,1200,1900,2500,3500] % 4,8,
+% keyboard
+    for C = [0.01,0.1,25,100,250,300,500,800,1200,1900,2500,3500,5000,7500,10000] % 4,8,
         cvx_begin
             variables teq(Neq)  lam(lamdim)
             minimize( C*norm(lam,1)/lamdim+10*norm_largest(teq,floor(0.75*lamdim))  )   %*norm(teq,2)/Neq  berhu huber norm_largest sum(huber(teq,1e-5))
@@ -247,7 +247,7 @@ keyboard
         end
         [C,100*abs(teq(1))/Beqtrain(1) , contains(cvx_status,'Solved')]
         keyboard
-        if 100*abs(teq(1))/Beqtrain(1)>0.1 && contains(cvx_status,'Solved')
+        if 100*abs(teq(1))/Beqtrain(1)>0.01 && contains(cvx_status,'Solved')
             break
         end
         
