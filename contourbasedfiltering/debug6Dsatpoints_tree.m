@@ -66,7 +66,7 @@ OE = cart2orbelem(x0,constants.mu)
 % [ r, v, Ehat ] = FnG(0, time.dt, x0(1:3), x0(4:6), 1);
 % [ r1, v1, Ehat ] = FnG(0, time.dt, r, -v, 1);
 
-P0=diag([0.001^2,0.001^2,0.001^2,0.00001^2,0.00001^2,0.00001^2]);
+P0=diag([0.01^2,0.01^2,0.01^2,0.0005^2,0.0005^2,0.0005^2]);
 
 x0(1:3)=x0(1:3)*constants.trueX2normX;
 x0(4:6)=x0(4:6)*constants.trueV2normV;
@@ -87,7 +87,7 @@ end
 
 
 % plotting the propagatin of MC
-Nmc=100000;
+Nmc=10000;
 XMC=zeros(Nmc,model.fn,time.Ntsteps);
 % XMCcoe=zeros(Nmc,model.fn,time.Ntsteps);
 XMC(:,:,1)=mvnrnd(x0',P0,Nmc);
@@ -120,7 +120,8 @@ for k=1:time.Ntsteps
     
     figure(1)
     plot(Xmctest(:,1)*constants.normX2trueX,Xmctest(:,2)*constants.normX2trueX,'r.')
-    pause(1)
+    title([num2str(k),' of ',num2str(time.Ntsteps)])
+    pause(0.5)
     k
 end
 %%

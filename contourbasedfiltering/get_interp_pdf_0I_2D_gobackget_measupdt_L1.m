@@ -248,6 +248,7 @@ prevmxentpoly = 0;
         [C,100*abs(teq(1))/Beqtrain(1) , contains(cvx_status,'Solved')]
         keyboard
         if 100*abs(teq(1))/Beqtrain(1)>0.01 && contains(cvx_status,'Solved')
+%             prevmxentpoly = mxentpoly;
             break
         end
         

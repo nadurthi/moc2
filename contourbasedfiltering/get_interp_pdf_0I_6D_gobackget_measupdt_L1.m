@@ -1,4 +1,4 @@
-function [Xpost,probspost,pdfnorm] = get_interp_pdf_0I_2D_gobackget_measupdt_L1(model,priorfullnormpdfatkm1,priorfullnormpdf,Xk1,probsk1,Nm,Tstepk1,Tk1,dtkk1,Xmctest,Xtruth,zk)
+function [Xpost,probspost,pdfnorm] = get_interp_pdf_0I_6D_gobackget_measupdt_L1(model,priorfullnormpdfatkm1,priorfullnormpdf,Xk1,probsk1,Nm,Tstepk1,Tk1,dtkk1,Xmctest,Xtruth,zk)
 % known prior pdf priorpdfnormk at time k
 % compute pdfnorm or pdfnormk1 at time k+1
 % Tk1 is time at k+1,
@@ -248,7 +248,7 @@ prevmxentpoly = 0;
         [C,100*abs(teq(1))/Beqtrain(1) , contains(cvx_status,'Solved')]
         keyboard
         if 100*abs(teq(1))/Beqtrain(1)>0.01 && contains(cvx_status,'Solved')
-            prevmxentpoly = mxentpoly;
+%             prevmxentpoly = mxentpoly;
             break
         end
         
