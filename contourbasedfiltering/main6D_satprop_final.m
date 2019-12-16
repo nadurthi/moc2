@@ -329,7 +329,7 @@ for k=2:time.Ntsteps
 
     [mX,PX]=MeanCov(X,probs/sum(probs));
 %     fullnormpdf=get_interp_pdf_0I_duff(X,probs,mX,PX,4,3,k,Xmctest,Xtruth(k,:)); %Xtruth(k,:)
-    priorfullnormpdf=get_interp_pdf_0I_6D_gobackget_L1(model,priorfullnormpdf,X,probs,15,k,time.Tvec(k),time.dt,Xmctest,Xtruth(k,:));
+    priorfullnormpdf=get_interp_pdf_0I_6D_gobackget_L1(model,priorfullnormpdf,X,probs,9,k,time.Tvec(k),time.dt,Xmctest,Xtruth(k,:));
 %     priorfullnormpdf=get_interp_pdf_0I_2D_gobackget(model,priorfullnormpdf,X,probs,4,k,time.Tvec(k),time.dt,Xmctest,Xtruth(k,:));
     %     fullnormpdf=get_interp_pdf_0I_2D(X,probs,mX,PX,4,k,[],Xtruth(k,:),plotsconf); %Xtruth(k,:)
 

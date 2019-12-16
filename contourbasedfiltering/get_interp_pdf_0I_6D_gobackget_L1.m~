@@ -314,9 +314,8 @@ axis([-1.2,1.2,-1.2,1.2])
 
 
 %% normalize
-F = @(X)exp(evaluate_polyND_highprec(mxentpoly,X));
-cc=treebased_integration(F,LB,UB,Xsanity,1e-4);
-
+F = @(X)evaluate_polyND_highprec(mxentpoly,X);
+c=treebased_integration(F,LB,UB,Xsanity,1e-4)
 disp(['norm constant is = ',num2str(cc)])
 
 c0 = get_coeff_NDpoly(mxentpoly,zeros(1,dim));
